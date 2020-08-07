@@ -1,0 +1,167 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1-strict.dtd">
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> WELCOME </title>
+
+         <!-- You must include this JavaScript file -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+        <!---- fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Abel|Alata|Noto+Sans|Open+Sans&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:500,700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Mono|Roboto:500,700&display=swap" rel="stylesheet">
+        <link href="//db.onlinewebfonts.com/c/8d65e04904a1582f7e49f29c82eeda2d?family=Atlas+Grotesk+Web+Bold" rel="stylesheet" type="text/css"/>
+        <link href="//db.onlinewebfonts.com/c/e4d50a7badededefb0d33b088efc3f4f?family=Atlas+Grotesk+Web+Medium" rel="stylesheet" type="text/css"/>
+        <!---- Bowser library -->
+        <script src="https://unpkg.com/bowser@2.7.0/es5.js"></script>
+
+        <link rel="stylesheet" src="{% static "css/style.css"%}">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <!---- Swiper --->
+        <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.css">
+        <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
+        <script src="https://unpkg.com/swiper/js/swiper.js"></script>
+        <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
+
+    </head>
+      <body>
+
+    <div class="container" id="introduction">
+        <div class="jumbotron" >
+            <div id="intro">
+            <h2 class="display-4">Introduction</h2>
+                <p class="lead"> 이 실험은 20대의 한국 소비자들의 온라인 쇼핑과 충동 구매에 대한 연구입니다.</p>
+                <p class="lead"> 이 실험은 IRB (UNISTIRB-20-35-A)에 의해 승인되었습니다. IRB approval 문서를 보려면 아래 버튼을 클릭해주세요. </p>
+                <button type="button" id="show-irb" class="btn btn-info">See IRB</button> <br>
+            <hr class="my-4">
+            <p class="lead">
+                온라인 상에서의 쇼핑 증가면서, 온라인 환경에서의 충동 구매 역시 높아지고 있습니다. <br>
+                이러한 충동 구매는 Over-shopping, Compulsive Buying Disorder, Shopping Addiction 으로 이어질 수 있기 때문에 경계해야하며,
+                우리는 이러한 충동 구매를 억제하기 위한 연구를 진행 중입니다.
+            </p>
+              <hr class="my-4">
+
+                <h2 class="display-4">Tutorial</h2>
+                <h5>실험에 참가하기 전 아래의 <strong style="color:red">'How to install'</strong> 버튼을 클릭하여, 안내에 따라  <strong> 확장 프로그램을 설치</strong> 해주시기 바랍니다. </h5>
+                <button type="button" id="show-manual" class="btn btn-danger">How to install</button> <br><br>
+
+                <p class="lead"> 이 실험은 크게 4단계로 진행될 것이며, 세부 내용은 다음과 같습니다. </p>
+                <ul type = "a">
+                    <li><strong>Step 1</strong> Instruction 에 따라 확장 프로그램을 크롬 브라우저에 설치하고, <strong>Tutorial</strong>과 <strong>Caution</strong>을 주의 깊게 읽은 후
+                        화면 하단의 <strong>‘동의’</strong> 버튼을 누르면 실험이 시작됩니다.   </li>
+                    <li><strong>Step 2</strong> Demographic 정보를 입력하고, 온라인 쇼핑 경향과 충동 구매 패턴에 대한 설문 및 개인 성향에 대한 질문에 답하게 될 것입니다.</li>
+                    <li><strong>Step 3</strong> 쿠팡 웹사이트를 둘러보면서 가장 사고싶은 충동이 드는 물건을 장바구니에 담는 쇼핑 Task를 진행하게 됩니다.
+                        <ul>
+                            <li>장바구니에 담을 물건을 고르고나서, 고른 물건에 대한 구매 충동 정도와 구매 의사를 측정하는 질문에 답하게 됩니다. </li>
+                            <li>(intervention group) 그 후 충동 구매 조절을 도와 주기 위한 Task 를 수행하고, 다시 한번 구매 충동 정도와 구매 의사를 측정하는 질문에 답하게 됩니다. </li>
+                        </ul>
+                    </li>
+                    <li><strong>Step 4</strong> 진행했던 쇼핑 Task 와 관련된 추가적인 설문이 진행됩니다. </li>
+                </ul>
+
+                <br><br>
+                <div class="text-right"> <button type="button" class="btn btn-info" id="btn-show-caution" onclick="window.scrollTo(0,0);">Next</button></div>
+            </div>
+
+            <div id="caution" style="display:none">
+                <h2 class="display-4"> Caution </h2>
+                <ul>
+                    <li>실험에 참여하는 동안의 피실험자는 화면 공유를 통해 연구자와 연결되며, 실험 도중 자유롭게 질문 할 수 있습니다. </li>
+                    <li><strong>피실험자의 실험 참여 과정은 화면 녹화프로그램으로 녹화됩니다.</strong></li>
+                    <li>최대한 평소의 쇼핑해던 모습대로 실험에 참가해주실 것을 부탁드리며 실험의 각 질문에 성실히 대답해주시기 바랍니다.</li>
+                    <li>Instruction 에 따라 실험에 참여하시고, 성공적으로 완료하시면 <strong>10,000원</strong>의 실험참가비가 지급됩니다.</li>
+                </ul>
+
+                <br><hr class="my4">
+
+                <h2 class="display-4"> Consent </h2>
+                <p class="lead"> 아래 '동의' 버튼을 클릭하면, 당시은 이 실험에 참가하는 것에 동의하는 것으로 간주됩니다. </p>
+                <p class="lead"> 아래 내용에 대하여 다시 한번 확인해주시기 바랍니다.</p>
+                    <ul>
+                        <li>크롬 확장 프로그램을 정상적으로 설치하였습니까?</li>
+                        <li>연구자와 화면 공유 프로그램을 통해 연결중입니까?</li>
+                        <li>본 실험의 전반적인 주의사항과 실험과정 및 실험참가비에 대하여 이해하였습니까?</li>
+                    </ul>
+                <br>
+                <h5><strong>본 실험에 참가하시겠습니까?</strong></h5>  <br>
+
+                <div class="text-right">
+                    <button type="button" class="btn btn-warning" id="btn-disagree" onclick="window.scrollTo(0,0);">비동의</button>
+                    <button type="button" class="btn btn-info" id="btn-agree" onclick="window.scrollTo(0,0);">동의</button></div>
+            </div>
+
+
+        </div>
+        </div>
+
+        {% block content %} {% endblock %}
+    </body>
+
+    <script>
+    var maxsize = 1024;
+        console.log($(window).width())
+        console.log($(window).height())
+        console.log(window.screen.width)
+        console.log(window.screen.height)
+        console.log(window.screen.availWidth)
+        console.log(window.screen.availHeight)
+
+
+
+    $('#show-irb').click(function(){window.open('/static/impBuy-irb.pdf');});
+    $('#show-manual').click(function(){window.open('/static/manual.pdf');});
+
+    $('#btn-show-caution').click(function() {
+        $('#intro').css("display", "none");
+        $('#caution').css("display", "block");
+        });
+
+    $("#btn-agree").click(function() {
+             location.href = '{% url 'information' %}';
+    });
+    $("#btn-disagree").click(function() {
+             alert('비동의를 선택하여, 실험 진행이 취소되었습니다.');
+    });
+
+
+</script>
+
+
+</html>
+<style>
+    .column {
+        flex: 50%;
+        padding: 5px;
+    }
+    .column img {
+        margin-top: 8px;
+        vertical-align: middle;
+    }
+    /* Three image containers (use 25% for four, and 50% for two, etc) */
+    .column2 {
+        width: 16.66%;
+        padding: 5px;
+    }
+
+    /* Clear floats after image containers */
+    .row::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+    .tnv-container1 tnv-container2{
+        margin: 5px;
+    }
+
+    ul {
+        font-size:15pt;
+    }
+    ol {
+        font-size:15pt;
+    }
+
+</style>

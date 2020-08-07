@@ -1,0 +1,686 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1-strict.dtd">
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> WELCOME </title>
+
+         <!-- You must include this JavaScript file -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+        <!---- fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Abel|Alata|Noto+Sans|Open+Sans&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:500,700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Mono|Roboto:500,700&display=swap" rel="stylesheet">
+        <link href="//db.onlinewebfonts.com/c/8d65e04904a1582f7e49f29c82eeda2d?family=Atlas+Grotesk+Web+Bold" rel="stylesheet" type="text/css"/>
+        <link href="//db.onlinewebfonts.com/c/e4d50a7badededefb0d33b088efc3f4f?family=Atlas+Grotesk+Web+Medium" rel="stylesheet" type="text/css"/>
+        <!---- Bowser library -->
+        <script src="https://unpkg.com/bowser@2.7.0/es5.js"></script>
+
+        <link rel="stylesheet" src="{% static "css/style.css"%}">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <!---- Swiper --->
+        <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.css">
+        <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
+        <script src="https://unpkg.com/swiper/js/swiper.js"></script>
+        <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
+
+    </head>
+    <body>
+        <div class="container">
+        <div class="jumbotron">
+            <h2 class="display-4"> Post-Interview Question</h2> <br>
+            <p class="lead"> 다음 질문에 답해주세요. </p><br>
+
+            <img width="1050px" style="border:1" src="{% static "fig2_intervention.png"%}">
+            <div class="row">
+                <div class="col" align="center"> Salient Cost</div>
+                <div class="col" align="center"> Reflection</div>
+                <div class="col" align="center"> Postponement</div>
+                <div class="col" align="center"> Reducing Desire</div>
+            </div>
+            <br><br>
+
+            <div id="functionality" style="display:block">
+                <h4> 나는 이 intervention을 사용하면서 제품을 사는 것에 대해 다시 한번 더 생각해보게 되었다.  </h4>
+                <br>
+                <h5>Salient Cost</h5><br>
+                <div class="row" align="center">
+                    <div class="col">
+                        <p> 전혀 동의하지 않음</p></div>
+                    <div class="col">
+                        <div id="btn-func-s1" class="btn-group" role="group" aria-label="Basic example">
+                            <button type="button" class="btn btn-outline-secondary button3">1</button>
+                            <button type="button" class="btn btn-outline-secondary button3">2</button>
+                            <button type="button" class="btn btn-outline-secondary button3">3</button>
+                            <button type="button" class="btn btn-outline-secondary button3">4</button>
+                            <button type="button" class="btn btn-outline-secondary button3">5</button>
+                            <button type="button" class="btn btn-outline-secondary button3">6</button>
+                            <button type="button" class="btn btn-outline-secondary button3">7</button>
+                        </div></div>
+                    <div class="col">
+                        <p>매우 동의함 </p> </div>
+                </div>
+                <br><br>
+
+                <h5>Reflection</h5><br>
+                <div class="row" align="center">
+                    <div class="col">
+                        <p> 전혀 동의하지 않음</p></div>
+                    <div class="col">
+                        <div id="btn-func-r1" class="btn-group" role="group" aria-label="Basic example">
+                            <button type="button" class="btn btn-outline-secondary button3">1</button>
+                            <button type="button" class="btn btn-outline-secondary button3">2</button>
+                            <button type="button" class="btn btn-outline-secondary button3">3</button>
+                            <button type="button" class="btn btn-outline-secondary button3">4</button>
+                            <button type="button" class="btn btn-outline-secondary button3">5</button>
+                            <button type="button" class="btn btn-outline-secondary button3">6</button>
+                            <button type="button" class="btn btn-outline-secondary button3">7</button>
+                        </div></div>
+                    <div class="col">
+                         <p>매우 동의함 </p> </div>
+                </div>
+                <br><br>
+
+                <h5>Postponement</h5><br>
+                <div class="row" align="center">
+                    <div class="col">
+                        <p> 전혀 동의하지 않음</p></div>
+                    <div class="col">
+                        <div id="btn-func-p1" class="btn-group" role="group" aria-label="Basic example">
+                            <button type="button" class="btn btn-outline-secondary button3">1</button>
+                            <button type="button" class="btn btn-outline-secondary button3">2</button>
+                            <button type="button" class="btn btn-outline-secondary button3">3</button>
+                            <button type="button" class="btn btn-outline-secondary button3">4</button>
+                            <button type="button" class="btn btn-outline-secondary button3">5</button>
+                            <button type="button" class="btn btn-outline-secondary button3">6</button>
+                            <button type="button" class="btn btn-outline-secondary button3">7</button>
+                        </div></div>
+                    <div class="col">
+                         <p>매우 동의함 </p> </div>
+                </div>
+                <br><br>
+
+                <h5>Reducing Desire</h5><br>
+                <div class="row" align="center">
+                    <div class="col">
+                        <p> 전혀 동의하지 않음</p></div>
+                    <div class="col">
+                        <div id="btn-func-d1" class="btn-group" role="group" aria-label="Basic example">
+                            <button type="button" class="btn btn-outline-secondary button3">1</button>
+                            <button type="button" class="btn btn-outline-secondary button3">2</button>
+                            <button type="button" class="btn btn-outline-secondary button3">3</button>
+                            <button type="button" class="btn btn-outline-secondary button3">4</button>
+                            <button type="button" class="btn btn-outline-secondary button3">5</button>
+                            <button type="button" class="btn btn-outline-secondary button3">6</button>
+                            <button type="button" class="btn btn-outline-secondary button3">7</button>
+                        </div></div>
+                    <div class="col">
+                         <p>매우 동의함 </p> </div>
+                </div>
+
+                <br><hr><br>
+
+                <h4> 나는 이 intervention을 사용하면서 제품에 대한 구매 욕구가 전보다 더 낮아진다고 느꼈다.  </h4>
+                <br>
+                <h5>Salient Cost</h5><br>
+                <div class="row" align="center">
+                    <div class="col">
+                        <p> 전혀 동의하지 않음</p></div>
+                    <div class="col">
+                        <div id="btn-func-s2" class="btn-group" role="group" aria-label="Basic example">
+                            <button type="button" class="btn btn-outline-secondary button3">1</button>
+                            <button type="button" class="btn btn-outline-secondary button3">2</button>
+                            <button type="button" class="btn btn-outline-secondary button3">3</button>
+                            <button type="button" class="btn btn-outline-secondary button3">4</button>
+                            <button type="button" class="btn btn-outline-secondary button3">5</button>
+                            <button type="button" class="btn btn-outline-secondary button3">6</button>
+                            <button type="button" class="btn btn-outline-secondary button3">7</button>
+                        </div></div>
+                    <div class="col">
+                        <p>매우 동의함 </p> </div>
+                </div>
+                <br><br>
+
+                <h5>Reflection</h5><br>
+                <div class="row" align="center">
+                    <div class="col">
+                        <p> 전혀 동의하지 않음</p></div>
+                    <div class="col">
+                        <div id="btn-func-r2" class="btn-group" role="group" aria-label="Basic example">
+                            <button type="button" class="btn btn-outline-secondary button3">1</button>
+                            <button type="button" class="btn btn-outline-secondary button3">2</button>
+                            <button type="button" class="btn btn-outline-secondary button3">3</button>
+                            <button type="button" class="btn btn-outline-secondary button3">4</button>
+                            <button type="button" class="btn btn-outline-secondary button3">5</button>
+                            <button type="button" class="btn btn-outline-secondary button3">6</button>
+                            <button type="button" class="btn btn-outline-secondary button3">7</button>
+                        </div></div>
+                    <div class="col">
+                         <p>매우 동의함 </p> </div>
+                </div>
+                <br><br>
+
+                <h5>Postponement</h5><br>
+                <div class="row" align="center">
+                    <div class="col">
+                        <p> 전혀 동의하지 않음</p></div>
+                    <div class="col">
+                        <div id="btn-func-p2" class="btn-group" role="group" aria-label="Basic example">
+                            <button type="button" class="btn btn-outline-secondary button3">1</button>
+                            <button type="button" class="btn btn-outline-secondary button3">2</button>
+                            <button type="button" class="btn btn-outline-secondary button3">3</button>
+                            <button type="button" class="btn btn-outline-secondary button3">4</button>
+                            <button type="button" class="btn btn-outline-secondary button3">5</button>
+                            <button type="button" class="btn btn-outline-secondary button3">6</button>
+                            <button type="button" class="btn btn-outline-secondary button3">7</button>
+                        </div></div>
+                    <div class="col">
+                         <p>매우 동의함 </p> </div>
+                </div>
+                <br><br>
+
+                <h5>Reducing Desire</h5><br>
+                <div class="row" align="center">
+                    <div class="col">
+                        <p> 전혀 동의하지 않음</p></div>
+                    <div class="col">
+                        <div id="btn-func-d2" class="btn-group" role="group" aria-label="Basic example">
+                            <button type="button" class="btn btn-outline-secondary button3">1</button>
+                            <button type="button" class="btn btn-outline-secondary button3">2</button>
+                            <button type="button" class="btn btn-outline-secondary button3">3</button>
+                            <button type="button" class="btn btn-outline-secondary button3">4</button>
+                            <button type="button" class="btn btn-outline-secondary button3">5</button>
+                            <button type="button" class="btn btn-outline-secondary button3">6</button>
+                            <button type="button" class="btn btn-outline-secondary button3">7</button>
+                        </div></div>
+                    <div class="col">
+                         <p>매우 동의함 </p> </div>
+                </div>
+
+                <br><hr><br>
+
+                <h4> Intervention이 충동구매를 자제하는데 효과적이었던 순으로 순위를 매겨주세요.  </h4>
+                <br>
+                <h5>Salient Cost</h5>
+                <div id="btn-func-rank1" class="btn-group" role="group" aria-label="Basic example">
+                    <button type="button" class="btn btn-outline-secondary button3">1</button>
+                    <button type="button" class="btn btn-outline-secondary button3">2</button>
+                    <button type="button" class="btn btn-outline-secondary button3">3</button>
+                    <button type="button" class="btn btn-outline-secondary button3">4</button>
+                </div><br><br>
+                <h5>Reflection</h5>
+                <div id="btn-func-rank2" class="btn-group" role="group" aria-label="Basic example">
+                    <button type="button" class="btn btn-outline-secondary button3">1</button>
+                    <button type="button" class="btn btn-outline-secondary button3">2</button>
+                    <button type="button" class="btn btn-outline-secondary button3">3</button>
+                    <button type="button" class="btn btn-outline-secondary button3">4</button>
+                </div><br><br>
+                <h5>Postponement</h5>
+                <div id="btn-func-rank3" class="btn-group" role="group" aria-label="Basic example">
+                    <button type="button" class="btn btn-outline-secondary button3">1</button>
+                    <button type="button" class="btn btn-outline-secondary button3">2</button>
+                    <button type="button" class="btn btn-outline-secondary button3">3</button>
+                    <button type="button" class="btn btn-outline-secondary button3">4</button>
+                </div><br><br>
+                <h5>Reducing Desire</h5>
+                <div id="btn-func-rank4" class="btn-group" role="group" aria-label="Basic example">
+                    <button type="button" class="btn btn-outline-secondary button3">1</button>
+                    <button type="button" class="btn btn-outline-secondary button3">2</button>
+                    <button type="button" class="btn btn-outline-secondary button3">3</button>
+                    <button type="button" class="btn btn-outline-secondary button3">4</button>
+                </div>
+
+                <br><br>
+                <div class="text-right">
+                    <button type="button" class="btn btn-info" id="btn-done-func" style="margin-top:30px;" onclick="window.scrollTo(0,0);" >Next</button> </div>
+            </div>
+
+
+            <div id="preference" style="display:none">
+                <h4>  내가 이 intervention을 사용하면서 느낀 감정은 아래에 더 가깝다. </h4>
+                <br>
+                <h5>Salient Cost</h5><br>
+                <div class="row" align="center">
+                    <div class="col">
+                        <p> 부정적</p></div>
+                    <div class="col">
+                        <div id="btn-pref-s1" class="btn-group" role="group" aria-label="Basic example">
+                            <button type="button" class="btn btn-outline-secondary button3">1</button>
+                            <button type="button" class="btn btn-outline-secondary button3">2</button>
+                            <button type="button" class="btn btn-outline-secondary button3">3</button>
+                            <button type="button" class="btn btn-outline-secondary button3">4</button>
+                            <button type="button" class="btn btn-outline-secondary button3">5</button>
+                            <button type="button" class="btn btn-outline-secondary button3">6</button>
+                            <button type="button" class="btn btn-outline-secondary button3">7</button>
+                        </div></div>
+                    <div class="col">
+                        <p> 긍정적 </p> </div>
+                </div>
+                <br><br>
+
+                <h5>Reflection</h5><br>
+                <div class="row" align="center">
+                    <div class="col">
+                        <p> 부정적</p></div>
+                    <div class="col">
+                        <div id="btn-pref-r1" class="btn-group" role="group" aria-label="Basic example">
+                            <button type="button" class="btn btn-outline-secondary button3">1</button>
+                            <button type="button" class="btn btn-outline-secondary button3">2</button>
+                            <button type="button" class="btn btn-outline-secondary button3">3</button>
+                            <button type="button" class="btn btn-outline-secondary button3">4</button>
+                            <button type="button" class="btn btn-outline-secondary button3">5</button>
+                            <button type="button" class="btn btn-outline-secondary button3">6</button>
+                            <button type="button" class="btn btn-outline-secondary button3">7</button>
+                        </div></div>
+                    <div class="col">
+                        <p>긍정적</p> </div>
+                </div>
+                <br><br>
+
+                <h5>Postponement</h5><br>
+                <div class="row" align="center">
+                    <div class="col">
+                        <p> 부정적</p></div>
+                    <div class="col">
+                        <div id="btn-pref-p1" class="btn-group" role="group" aria-label="Basic example">
+                            <button type="button" class="btn btn-outline-secondary button3">1</button>
+                            <button type="button" class="btn btn-outline-secondary button3">2</button>
+                            <button type="button" class="btn btn-outline-secondary button3">3</button>
+                            <button type="button" class="btn btn-outline-secondary button3">4</button>
+                            <button type="button" class="btn btn-outline-secondary button3">5</button>
+                            <button type="button" class="btn btn-outline-secondary button3">6</button>
+                            <button type="button" class="btn btn-outline-secondary button3">7</button>
+                        </div></div>
+                    <div class="col">
+                        <p>긍정적</p> </div>
+                </div>
+                <br><br>
+
+                <h5>Reducing Desire</h5><br>
+                <div class="row" align="center">
+                    <div class="col">
+                        <p> 부정적</p></div>
+                    <div class="col">
+                        <div id="btn-pref-d1" class="btn-group" role="group" aria-label="Basic example">
+                            <button type="button" class="btn btn-outline-secondary button3">1</button>
+                            <button type="button" class="btn btn-outline-secondary button3">2</button>
+                            <button type="button" class="btn btn-outline-secondary button3">3</button>
+                            <button type="button" class="btn btn-outline-secondary button3">4</button>
+                            <button type="button" class="btn btn-outline-secondary button3">5</button>
+                            <button type="button" class="btn btn-outline-secondary button3">6</button>
+                            <button type="button" class="btn btn-outline-secondary button3">7</button>
+                        </div></div>
+                    <div class="col">
+                        <p>긍정적</p> </div>
+                </div>
+
+                <br><hr><br>
+
+                <h4>  나는 이 intervention 을 다른 충동 구매 자제를 원하는 사람들에게 추천해 줄 의향이 있다. </h4>
+                <br>
+                <h5>Salient Cost</h5><br>
+                <div class="row" align="center">
+                    <div class="col">
+                        <p> 동의하지 않음</p></div>
+                    <div class="col">
+                        <div id="btn-pref-s2" class="btn-group" role="group" aria-label="Basic example">
+                            <button type="button" class="btn btn-outline-secondary button3">1</button>
+                            <button type="button" class="btn btn-outline-secondary button3">2</button>
+                            <button type="button" class="btn btn-outline-secondary button3">3</button>
+                            <button type="button" class="btn btn-outline-secondary button3">4</button>
+                            <button type="button" class="btn btn-outline-secondary button3">5</button>
+                            <button type="button" class="btn btn-outline-secondary button3">6</button>
+                            <button type="button" class="btn btn-outline-secondary button3">7</button>
+                        </div></div>
+                    <div class="col">
+                        <p> 동의함 </p> </div>
+                </div>
+                <br><br>
+
+                <h5>Reflection</h5><br>
+                <div class="row" align="center">
+                    <div class="col">
+                        <p> 동의하지 않음</p></div>
+                    <div class="col">
+                        <div id="btn-pref-r2" class="btn-group" role="group" aria-label="Basic example">
+                            <button type="button" class="btn btn-outline-secondary button3">1</button>
+                            <button type="button" class="btn btn-outline-secondary button3">2</button>
+                            <button type="button" class="btn btn-outline-secondary button3">3</button>
+                            <button type="button" class="btn btn-outline-secondary button3">4</button>
+                            <button type="button" class="btn btn-outline-secondary button3">5</button>
+                            <button type="button" class="btn btn-outline-secondary button3">6</button>
+                            <button type="button" class="btn btn-outline-secondary button3">7</button>
+                        </div></div>
+                    <div class="col">
+                        <p>동의함</p> </div>
+                </div>
+                <br><br>
+
+                <h5>Postponement</h5><br>
+                <div class="row" align="center">
+                    <div class="col">
+                        <p> 동의하지 않음</p></div>
+                    <div class="col">
+                        <div id="btn-pref-p2" class="btn-group" role="group" aria-label="Basic example">
+                            <button type="button" class="btn btn-outline-secondary button3">1</button>
+                            <button type="button" class="btn btn-outline-secondary button3">2</button>
+                            <button type="button" class="btn btn-outline-secondary button3">3</button>
+                            <button type="button" class="btn btn-outline-secondary button3">4</button>
+                            <button type="button" class="btn btn-outline-secondary button3">5</button>
+                            <button type="button" class="btn btn-outline-secondary button3">6</button>
+                            <button type="button" class="btn btn-outline-secondary button3">7</button>
+                        </div></div>
+                    <div class="col">
+                        <p>동의함</p> </div>
+                </div>
+                <br><br>
+
+                <h5>Reducing Desire</h5><br>
+                <div class="row" align="center">
+                    <div class="col">
+                        <p> 동의하지 않음</p></div>
+                    <div class="col">
+                        <div id="btn-pref-d2" class="btn-group" role="group" aria-label="Basic example">
+                            <button type="button" class="btn btn-outline-secondary button3">1</button>
+                            <button type="button" class="btn btn-outline-secondary button3">2</button>
+                            <button type="button" class="btn btn-outline-secondary button3">3</button>
+                            <button type="button" class="btn btn-outline-secondary button3">4</button>
+                            <button type="button" class="btn btn-outline-secondary button3">5</button>
+                            <button type="button" class="btn btn-outline-secondary button3">6</button>
+                            <button type="button" class="btn btn-outline-secondary button3">7</button>
+                        </div></div>
+                    <div class="col">
+                        <p>동의함</p> </div>
+                </div>
+
+                <br><hr><br>
+
+                <h4> Intervention을 선호하는 선수대로 순위를 매겨주세요. </h4>
+                <br>
+                <h5>Salient Cost</h5>
+                <div id="btn-pref-rank1" class="btn-group" role="group" aria-label="Basic example">
+                    <button type="button" class="btn btn-outline-secondary button3">1</button>
+                    <button type="button" class="btn btn-outline-secondary button3">2</button>
+                    <button type="button" class="btn btn-outline-secondary button3">3</button>
+                    <button type="button" class="btn btn-outline-secondary button3">4</button>
+                </div><br><br>
+                <h5>Reflection</h5>
+                <div id="btn-pref-rank2" class="btn-group" role="group" aria-label="Basic example">
+                    <button type="button" class="btn btn-outline-secondary button3">1</button>
+                    <button type="button" class="btn btn-outline-secondary button3">2</button>
+                    <button type="button" class="btn btn-outline-secondary button3">3</button>
+                    <button type="button" class="btn btn-outline-secondary button3">4</button>
+                </div><br><br>
+                <h5>Postponement</h5>
+                <div id="btn-pref-rank3" class="btn-group" role="group" aria-label="Basic example">
+                    <button type="button" class="btn btn-outline-secondary button3">1</button>
+                    <button type="button" class="btn btn-outline-secondary button3">2</button>
+                    <button type="button" class="btn btn-outline-secondary button3">3</button>
+                    <button type="button" class="btn btn-outline-secondary button3">4</button>
+                </div><br><br>
+                <h5>Reducing Desire</h5>
+                <div id="btn-pref-rank4" class="btn-group" role="group" aria-label="Basic example">
+                    <button type="button" class="btn btn-outline-secondary button3">1</button>
+                    <button type="button" class="btn btn-outline-secondary button3">2</button>
+                    <button type="button" class="btn btn-outline-secondary button3">3</button>
+                    <button type="button" class="btn btn-outline-secondary button3">4</button>
+                </div>
+
+                <br><br>
+                <div class="text-right">
+                    <button type="button" class="btn btn-info" id="btn-done-pref" style="margin-top:30px;" onclick="window.scrollTo(0,0);" >Next</button> </div>
+            </div>
+
+            <div id="usability" style="display:none">
+                <h4>이 Intervention의 인터페이스는 사용하기 편리했다. </h4>
+                <br>
+                <h5>Salient Cost</h5><br>
+                <div class="row" align="center">
+                    <div class="col">
+                        <p> 전혀 동의하지 않음</p></div>
+                    <div class="col">
+                        <div id="btn-use-s1" class="btn-group" role="group" aria-label="Basic example">
+                            <button type="button" class="btn btn-outline-secondary button3">1</button>
+                            <button type="button" class="btn btn-outline-secondary button3">2</button>
+                            <button type="button" class="btn btn-outline-secondary button3">3</button>
+                            <button type="button" class="btn btn-outline-secondary button3">4</button>
+                            <button type="button" class="btn btn-outline-secondary button3">5</button>
+                            <button type="button" class="btn btn-outline-secondary button3">6</button>
+                            <button type="button" class="btn btn-outline-secondary button3">7</button>
+                        </div></div>
+                    <div class="col">
+                        <p>매우 동의함</p> </div>
+                </div>
+                <br><br>
+
+                <h5>Reflection</h5><br>
+                <div class="row" align="center">
+                    <div class="col">
+                        <p> 전혀 동의하지 않음</p></div>
+                    <div class="col">
+                        <div id="btn-use-r1" class="btn-group" role="group" aria-label="Basic example">
+                            <button type="button" class="btn btn-outline-secondary button3">1</button>
+                            <button type="button" class="btn btn-outline-secondary button3">2</button>
+                            <button type="button" class="btn btn-outline-secondary button3">3</button>
+                            <button type="button" class="btn btn-outline-secondary button3">4</button>
+                            <button type="button" class="btn btn-outline-secondary button3">5</button>
+                            <button type="button" class="btn btn-outline-secondary button3">6</button>
+                            <button type="button" class="btn btn-outline-secondary button3">7</button>
+                        </div></div>
+                    <div class="col">
+                        <p>매우 동의함</p> </div>
+                </div>
+                <br><br>
+
+                <h5>Postponement</h5><br>
+                <div class="row" align="center">
+                    <div class="col">
+                        <p> 전혀 동의하지 않음</p></div>
+                    <div class="col">
+                        <div id="btn-use-p1" class="btn-group" role="group" aria-label="Basic example">
+                            <button type="button" class="btn btn-outline-secondary button3">1</button>
+                            <button type="button" class="btn btn-outline-secondary button3">2</button>
+                            <button type="button" class="btn btn-outline-secondary button3">3</button>
+                            <button type="button" class="btn btn-outline-secondary button3">4</button>
+                            <button type="button" class="btn btn-outline-secondary button3">5</button>
+                            <button type="button" class="btn btn-outline-secondary button3">6</button>
+                            <button type="button" class="btn btn-outline-secondary button3">7</button>
+                        </div></div>
+                    <div class="col">
+                        <p>매우 동의함</p> </div>
+                </div>
+                <br><br>
+
+                <h5>Reducing Desire</h5><br>
+                <div class="row" align="center">
+                    <div class="col">
+                        <p> 전혀 동의하지 않음</p></div>
+                    <div class="col">
+                        <div id="btn-use-d1" class="btn-group" role="group" aria-label="Basic example">
+                            <button type="button" class="btn btn-outline-secondary button3">1</button>
+                            <button type="button" class="btn btn-outline-secondary button3">2</button>
+                            <button type="button" class="btn btn-outline-secondary button3">3</button>
+                            <button type="button" class="btn btn-outline-secondary button3">4</button>
+                            <button type="button" class="btn btn-outline-secondary button3">5</button>
+                            <button type="button" class="btn btn-outline-secondary button3">6</button>
+                            <button type="button" class="btn btn-outline-secondary button3">7</button>
+                        </div></div>
+                    <div class="col">
+                        <p>매우 동의함</p> </div>
+                </div>
+
+                <br><hr><br>
+
+                <h4>이 Intervention의 인터페이스는 직관적이다. </h4>
+                <br>
+                <h5>Salient Cost</h5><br>
+                <div class="row" align="center">
+                    <div class="col">
+                        <p> 전혀 동의하지 않음</p></div>
+                    <div class="col">
+                        <div id="btn-use-s2" class="btn-group" role="group" aria-label="Basic example">
+                            <button type="button" class="btn btn-outline-secondary button3">1</button>
+                            <button type="button" class="btn btn-outline-secondary button3">2</button>
+                            <button type="button" class="btn btn-outline-secondary button3">3</button>
+                            <button type="button" class="btn btn-outline-secondary button3">4</button>
+                            <button type="button" class="btn btn-outline-secondary button3">5</button>
+                            <button type="button" class="btn btn-outline-secondary button3">6</button>
+                            <button type="button" class="btn btn-outline-secondary button3">7</button>
+                        </div></div>
+                    <div class="col">
+                        <p>매우 동의함</p> </div>
+                </div>
+                <br><br>
+
+                <h5>Reflection</h5><br>
+                <div class="row" align="center">
+                    <div class="col">
+                        <p> 전혀 동의하지 않음</p></div>
+                    <div class="col">
+                        <div id="btn-use-r2" class="btn-group" role="group" aria-label="Basic example">
+                            <button type="button" class="btn btn-outline-secondary button3">1</button>
+                            <button type="button" class="btn btn-outline-secondary button3">2</button>
+                            <button type="button" class="btn btn-outline-secondary button3">3</button>
+                            <button type="button" class="btn btn-outline-secondary button3">4</button>
+                            <button type="button" class="btn btn-outline-secondary button3">5</button>
+                            <button type="button" class="btn btn-outline-secondary button3">6</button>
+                            <button type="button" class="btn btn-outline-secondary button3">7</button>
+                        </div></div>
+                    <div class="col">
+                        <p>매우 동의함</p> </div>
+                </div>
+                <br><br>
+
+                <h5>Postponement</h5><br>
+                <div class="row" align="center">
+                    <div class="col">
+                        <p> 전혀 동의하지 않음</p></div>
+                    <div class="col">
+                        <div id="btn-use-p2" class="btn-group" role="group" aria-label="Basic example">
+                            <button type="button" class="btn btn-outline-secondary button3">1</button>
+                            <button type="button" class="btn btn-outline-secondary button3">2</button>
+                            <button type="button" class="btn btn-outline-secondary button3">3</button>
+                            <button type="button" class="btn btn-outline-secondary button3">4</button>
+                            <button type="button" class="btn btn-outline-secondary button3">5</button>
+                            <button type="button" class="btn btn-outline-secondary button3">6</button>
+                            <button type="button" class="btn btn-outline-secondary button3">7</button>
+                        </div></div>
+                    <div class="col">
+                        <p>매우 동의함</p> </div>
+                </div>
+                <br><br>
+
+                <h5>Reducing Desire</h5><br>
+                <div class="row" align="center">
+                    <div class="col">
+                        <p> 전혀 동의하지 않음</p></div>
+                    <div class="col">
+                        <div id="btn-use-d2" class="btn-group" role="group" aria-label="Basic example">
+                            <button type="button" class="btn btn-outline-secondary button3">1</button>
+                            <button type="button" class="btn btn-outline-secondary button3">2</button>
+                            <button type="button" class="btn btn-outline-secondary button3">3</button>
+                            <button type="button" class="btn btn-outline-secondary button3">4</button>
+                            <button type="button" class="btn btn-outline-secondary button3">5</button>
+                            <button type="button" class="btn btn-outline-secondary button3">6</button>
+                            <button type="button" class="btn btn-outline-secondary button3">7</button>
+                        </div></div>
+                    <div class="col">
+                        <p>매우 동의함</p> </div>
+                </div>
+
+                <br><hr><br>
+
+                <h4> 전체적인 사용성을 따져 보았을 때, 사용성이 좋았던 순서대로 순위를 매겨주세요.</h4>
+                <br>
+                <h5>Salient Cost</h5>
+                <div id="btn-use-rank1" class="btn-group" role="group" aria-label="Basic example">
+                    <button type="button" class="btn btn-outline-secondary button3">1</button>
+                    <button type="button" class="btn btn-outline-secondary button3">2</button>
+                    <button type="button" class="btn btn-outline-secondary button3">3</button>
+                    <button type="button" class="btn btn-outline-secondary button3">4</button>
+                </div><br><br>
+                <h5>Reflection</h5>
+                <div id="btn-use-rank2" class="btn-group" role="group" aria-label="Basic example">
+                    <button type="button" class="btn btn-outline-secondary button3">1</button>
+                    <button type="button" class="btn btn-outline-secondary button3">2</button>
+                    <button type="button" class="btn btn-outline-secondary button3">3</button>
+                    <button type="button" class="btn btn-outline-secondary button3">4</button>
+                </div><br><br>
+                <h5>Postponement</h5>
+                <div id="btn-use-rank3" class="btn-group" role="group" aria-label="Basic example">
+                    <button type="button" class="btn btn-outline-secondary button3">1</button>
+                    <button type="button" class="btn btn-outline-secondary button3">2</button>
+                    <button type="button" class="btn btn-outline-secondary button3">3</button>
+                    <button type="button" class="btn btn-outline-secondary button3">4</button>
+                </div><br><br>
+                <h5>Reducing Desire</h5>
+                <div id="btn-use-rank4" class="btn-group" role="group" aria-label="Basic example">
+                    <button type="button" class="btn btn-outline-secondary button3">1</button>
+                    <button type="button" class="btn btn-outline-secondary button3">2</button>
+                    <button type="button" class="btn btn-outline-secondary button3">3</button>
+                    <button type="button" class="btn btn-outline-secondary button3">4</button>
+                </div>
+
+                <br><br>
+                <div class="text-right">
+                    <button type="button" class="btn btn-info" id="btn-done-use" style="margin-top:30px;" onclick="window.scrollTo(0,0);" >Next</button> </div>
+            </div>
+
+            <div id="answer-sheet" style="display:none">
+                <form action="/postSurvey" method="POST" id="ans-form-post">
+                <input type="text" id="funcRank1" name="funcRank1" value=0>
+                <input type="text" id="funcRank2" name="funcRank2" value=0>
+                <input type="text" id="funcRank3" name="funcRank3" value=0>
+                <input type="text" id="funcRank4" name="funcRank4" value=0>
+                <input type="text" id="funcS1" name="funcS1" value=0>
+                <input type="text" id="funcR1" name="funcR1" value=0>
+                <input type="text" id="funcP1" name="funcP1" value=0>
+                <input type="text" id="funcD1" name="funcD1" value=0>
+                <input type="text" id="funcS2" name="funcS2" value=0>
+                <input type="text" id="funcR2" name="funcR2" value=0>
+                <input type="text" id="funcP2" name="funcP2" value=0>
+                <input type="text" id="funcD2" name="funcD2" value=0>
+
+                <input type="text" id="prefRank1" name="prefRank1" value=0>
+                <input type="text" id="prefRank2" name="prefRank2" value=0>
+                <input type="text" id="prefRank3" name="prefRank3" value=0>
+                <input type="text" id="prefRank4" name="prefRank4" value=0>
+                <input type="text" id="prefS1" name="prefS1" value=0>
+                <input type="text" id="prefR1" name="prefR1" value=0>
+                <input type="text" id="prefP1" name="prefP1" value=0>
+                <input type="text" id="prefD1" name="prefD1" value=0>
+                <input type="text" id="prefS2" name="prefS2" value=0>
+                <input type="text" id="prefR2" name="prefR2" value=0>
+                <input type="text" id="prefP2" name="prefP2" value=0>
+                <input type="text" id="prefD2" name="prefD2" value=0>
+
+                <input type="text" id="useRank1" name="useRank1" value=0>
+                <input type="text" id="useRank2" name="useRank2" value=0>
+                <input type="text" id="useRank3" name="useRank3" value=0>
+                <input type="text" id="useRank4" name="useRank4" value=0>
+                <input type="text" id="useS1" name="useS1" value=0>
+                <input type="text" id="useR1" name="useR1" value=0>
+                <input type="text" id="useP1" name="useP1" value=0>
+                <input type="text" id="useD1" name="useD1" value=0>
+                <input type="text" id="useS2" name="useS2" value=0>
+                <input type="text" id="useR2" name="useR2" value=0>
+                <input type="text" id="useP2" name="useP2" value=0>
+                <input type="text" id="useD2" name="useD2" value=0>
+                </form>
+            </div>
+        </div>
+        </div>
+
+    </body>
+<style>
+img {
+    vertical-align: middle;
+    border : 1px solid black;
+    background-color: white;
+}
+</style>
+<script type='text/javascript' src="{% static "js/postSurvey.js" %}"></script>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1-strict.dtd">
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> WELCOME </title>
+
+         <!-- You must include this JavaScript file -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+        <!---- fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Abel|Alata|Noto+Sans|Open+Sans&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:500,700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Mono|Roboto:500,700&display=swap" rel="stylesheet">
+        <link href="//db.onlinewebfonts.com/c/8d65e04904a1582f7e49f29c82eeda2d?family=Atlas+Grotesk+Web+Bold" rel="stylesheet" type="text/css"/>
+        <link href="//db.onlinewebfonts.com/c/e4d50a7badededefb0d33b088efc3f4f?family=Atlas+Grotesk+Web+Medium" rel="stylesheet" type="text/css"/>
+        <!---- Bowser library -->
+        <script src="https://unpkg.com/bowser@2.7.0/es5.js"></script>
+
+        <link rel="stylesheet" src="{% static "css/style.css"%}">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <!---- Swiper --->
+        <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.css">
+        <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
+        <script src="https://unpkg.com/swiper/js/swiper.js"></script>
+        <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
+
+    </head>
+    <body>
+        <div class="container">
+        <div class="jumbotron">
+            <div id="instruction-task">
+                <h2 class="display-4">Shopping Task</h2><br>
+
+                <p class="lead">
+                <ul>
+                    <li> 당신은 이번 달 열심히 절약해서 4만원 정도의 여유가 있습니다. </li>
+                    <li> 그대로 저축할 수도 있겠지만, 오늘은 기분이 좋기도 하고 그간 열심히 일했으니 자신에게 선물을 사주려고 합니다. </li>
+                    <li> 지금부터 약 <strong> 20분 간</strong> 자유롭게 쇼핑몰을 둘러보고, <u>장바구니에 물건을 담아 주세요.</u> </li>
+                </ul>
+                </p>
+
+                <p class="lead">아래 링크를 눌러 쇼핑 태스크를 시작해주세요.</p>
+                <strong><div id="timeLeft1"></div> </strong>
+                <br>
+                <a href="http://coupang.com" target="_blank" id="coupang_button">쇼핑몰 사이트</a>
+                <br><br>
+
+                <div class="text-right">
+                    <button type="button" class="btn btn-info" id="done-task" style="margin-top:30px;" onclick="window.scrollTo(0,0);" >Next</button> </div>
+            </div>
+
+            <div id="answer-task" style="display:none">
+                <form action="/task" method="POST" id="ans-form-task">
+                    <input type="text" id="task" name="task" value=False/>
+                </form>
+            </div>
+
+        </div>
+        </div>
+    </body>
+<script type='text/javascript' src="{% static "js/task.js" %}"></script>
+</html>

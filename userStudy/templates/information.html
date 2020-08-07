@@ -1,0 +1,624 @@
+{% extends 'Master.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+<div class="jumbotron" id="information">
+    <form  class="needs-validation" action="/information" method="POST" id="info-form">
+    <div id="demographic">
+      <h2 class="display-4">Demographic survey</h2><br>
+
+            <div class="form-group">
+                <label for="age">1. 나이가 어떻게 되십니까?</label> <br>
+                <input type="text" id="age" name="age" placeholder="Age" style="display:none;" required/>
+                <small id="ageHelp" class="form-text text-muted" hidden>Type in Number</small>
+            <div class="dropdown row">
+                <div class="form-group col-lg">
+                    <select id="selectAge" class="form-control" onchange="getAge(this.value)" style="height:auto;font-size:100%;">
+                    <option selected> 선택
+                    <option> 18 </option><option> 19 </option><option> 20 </option><option> 21 </option><option> 22 </option>
+                    <option> 23 </option><option> 24 </option><option> 25 </option><option> 26 </option><option> 27 </option>
+                    <option> 28 </option><option> 29 </option><option> 30 </option><option> 31 </option><option> 32 </option>
+                    <option> 33 </option><option> 34 </option><option> 35 </option><option> 36 </option><option> 37 </option>
+                    <option> 38 </option><option> 39 </option>
+                    </select>
+                </div>
+            </div>
+                <div class="invalid-feedback" style="display:none;" id="age-feedback"> 나이를 올바르게 입력했는지 확인하십시오. </div>
+            </div>
+
+            <div class="form-group">
+                <label for="gender">2. 성별이 어떻게 되십니까?</label> <br>
+                <div id="gender-btn" class="btn-group btn-group-s" role="group" aria-label="Basic example">
+                    <button type="button" class="btn btn-outline-dark button1">남자</button>
+                    <button type="button" class="btn btn-outline-dark button1">여자</button>
+                    <button type="button" class="btn btn-outline-dark button1">무응답</button>
+                </div>
+                <div class="invalid-feedback" style="display:none;" id="gender-feedback1"> 답변을 정확하게 입력했는지 확인하십시오. </div>
+                <input type="text" id="gender" name="gender" style="display:none;"/>
+                <!--<small id="genderHelp" class="form-text text-muted">M (Man) / F (Femail)</small>-->
+            </div>
+            <br>
+
+            <div class="form-group">
+                <label for="employee">3. 현재 직업 및 고용상태는 어떻게 되십니까? (중복 응답 가능)</label> <br>
+                <div id="employee-full" class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="ck-full" value="full">
+                    <label class="custom-control-label" for="ck-full"> 풀 타임 </label>
+                </div>
+                <div id="employee-part" class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="ck-part" value="part">
+                    <label class="custom-control-label" for="ck-part"> 파트 타임 (아르바이트) </label>
+                </div>
+                <div id="employee-look" class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="ck-look" value="look">
+                    <label class="custom-control-label" for="ck-look">  구직 중 </label>
+                </div>
+                <div id="employee-rest" class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="ck-rest" value="rest">
+                    <label class="custom-control-label" for="ck-rest">  휴식 중 (구직 중 X) </label>
+                </div>
+                <div id="employee-parent" class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="ck-parent" value="parent">
+                    <label class="custom-control-label" for="ck-parent"> 보호자와 함께 거주 중 </label>
+                </div>
+                <div id="employee-student" class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="ck-student" value="student">
+                    <label class="custom-control-label" for="ck-student">  학생 </label>
+                </div>
+                <div id="employee-soldier" class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="ck-soldier" value="soldier">
+                    <label class="custom-control-label" for="ck-soldier">  군인 </label>
+                </div>
+                <div id="employee-cantwork" class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="ck-cantwork" value="cantwork">
+                    <label class="custom-control-label" for="ck-cantwork">  일을 할 수 없는 상태 </label>
+                </div>
+
+                <div class="invalid-feedback" style="display:none;" id="employee-feedback"> 항목을 한 개 이상 선택해야합니다. </div>
+                <input type="text" id="employee" name="employee" style="display:none;"/>
+                <!--<small id="genderHelp" class="form-text text-muted">M (Man) / F (Femail)</small>-->
+            </div>
+            <br>
+
+            <div class="form-group">
+                <label for="income">4. 월 생활비는 어떻게 됩니까? (용돈 포함)</label> <br>
+                <div id="income-btn" class="btn-group btn-group-sm" role="group" aria-label="Basic example" style="margin-bottom:10px; margin-top:15px;">
+                    <button type="button" name="1" class="btn btn-outline-dark button2">50만원 미만</button>
+                    <button type="button" name="2" class="btn btn-outline-dark button2">50만원 이상 100만원 미만</button>
+                    <button type="button" name="3" class="btn btn-outline-dark button2">100만원 이상 200만원 미만</button>
+                    <button type="button" name="4" class="btn btn-outline-dark button2">200만원 이상 300만원 미만</button>
+                    <button type="button" name="4" class="btn btn-outline-dark button2">300만원 이상</button>
+                </div>
+                <div class="invalid-feedback" style="display:none;" id="income-feedback"> 답변을 올바르게 입력했는지 확인하십시오. </div>
+                <input type="text" id="income" name="income" style="display:none;"/>
+            </div>
+            <br>
+
+          <div class="form-group">
+            <label for="coupang">5. 평소 온라인 쇼핑시 '쿠팡'을 얼마나 자주 이용합니까?</label> <br>
+            <div id="coupang-btn" class="btn-group btn-group-sm" role="group" aria-label="Basic example" style="margin-bottom:10px; margin-top:15px;">
+                <button type="button" name="1" class="btn btn-outline-dark button2">거의 이용하지 않는다</button>
+                <button type="button" name="2" class="btn btn-outline-dark button2">한달에 1번</button>
+                <button type="button" name="3" class="btn btn-outline-dark button2">2주일에 1번</button>
+                <button type="button" name="4" class="btn btn-outline-dark button2">일주일에 1번</button>
+                <button type="button" name="4" class="btn btn-outline-dark button2">일주일에 2~4번</button>
+                <button type="button" name="4" class="btn btn-outline-dark button2">일주일에 5번 이상</button>
+            </div>
+            <div class="invalid-feedback" style="display:none;" id="coupang-feedback"> 답변을 올바르게 입력했는지 확인하십시오.  </div>
+            <input type="text" id="coupang" name="coupang" style="display:none;"/>
+          </div><br>
+
+
+        <div class="form-group">
+            <label for="frequency">6. 평소 충동 구매를 얼마나 자주 하는 편입니까?</label> <br>
+            <div id="frequency-btn" class="btn-group btn-group-sm" role="group" aria-label="Basic example" style="margin-bottom:10px; margin-top:15px;">
+                <button type="button" name="1" class="btn btn-outline-dark button2">거의 하지 않는다</button>
+                <button type="button" name="2" class="btn btn-outline-dark button2">한달에 1번</button>
+                <button type="button" name="3" class="btn btn-outline-dark button2">2주일에 1번</button>
+                <button type="button" name="4" class="btn btn-outline-dark button2">일주일에 1번</button>
+                <button type="button" name="4" class="btn btn-outline-dark button2">일주일에 2~4번</button>
+                <button type="button" name="4" class="btn btn-outline-dark button2">일주일에 5번 이상</button>
+            </div>
+            <div class="invalid-feedback" style="display:none;" id="frequency-feedback">  답변을 올바르게 입력했는지 확인하십시오. </div>
+            <input type="text" id="frequency" name="frequency" style="display:none;"/>
+        </div><br>
+
+        <div class="form-group">
+            <label for="situation">7. 충동 구매를 한다면 어떤 상황에, 어떤 물품을 충동적으로 구매합니까?</label> <br>
+            <textarea id="situation-txt" rows="4" cols="80"></textarea>
+            <div class="invalid-feedback" style="display:none;" id="situation-feedback"> 답변을 올바르게 입력했는지 확인하십시오. </div>
+            <input type="text" id="situation" name="situation" style="display:none;"/>
+        </div><br>
+
+        <div class="form-group">
+            <label for="control">8. 본인의 충동 구매를 줄여야 한다는 필요성을 느낍니까?</label> <br>
+            <div id="control-btn" class="btn-group btn-group-sm" role="group" aria-label="Basic example" style="margin-bottom:10px; margin-top:15px;">
+                <button type="button" name="1" class="btn btn-outline-dark button2">전혀 필요하지 않다고 느낌</button>
+                <button type="button" name="2" class="btn btn-outline-dark button2">필요하지 않다고 느낌</button>
+                <button type="button" name="3" class="btn btn-outline-dark button2">필요하지 않다는 편에 더 가까움</button>
+                <button type="button" name="4" class="btn btn-outline-dark button2">필요하다는 편에 더 가까움</button>
+                <button type="button" name="4" class="btn btn-outline-dark button2">필요하다고 느낌</button>
+                <button type="button" name="4" class="btn btn-outline-dark button2">매우 필요하다고 느낌</button>
+            </div>
+            <div class="invalid-feedback" style="display:none;" id="control-feedback">  답변을 올바르게 입력했는지 확인하십시오. </div>
+            <input type="text" id="control" name="control" style="display:none;"/>
+        </div>
+
+        <br>
+        <div class="text-right"> <button type="button" class="btn btn-info" id="btn-show-individual" onclick="window.scrollTo(0,0);">Next</button></div>
+    </div>
+
+
+    <div id="individual-traits" style="display:none">
+        <h3 class="display-5">구매에 관한 개인 성향에 대한 질문입니다.</h3><br>
+
+            <div class="form-group">
+                <label for="ibt1">1. 나는 온라인에서 쇼핑을 할 때, 사려는 의사가 없었던 물건을 구매하곤 한다.
+                    <br> (When I go shopping, I buy things that I had not intended to purchase)</label> <br>
+                <div class="row" align="center">
+                    <div class="col">
+                        <p>전혀 그렇지 않다</p></div>
+                    <div class="col">
+                    <div id="ibt1-btn" class="btn-group btn-group-sm" role="group" aria-label="Basic example" style="margin-bottom:10px; margin-top:15px;">
+                        <button type="button" name="1" class="btn btn-outline-dark button2">1</button>
+                        <button type="button" name="2" class="btn btn-outline-dark button2">2</button>
+                        <button type="button" name="3" class="btn btn-outline-dark button2">3</button>
+                        <button type="button" name="4" class="btn btn-outline-dark button2">4</button>
+                        <button type="button" name="4" class="btn btn-outline-dark button2">5</button>
+                        <button type="button" name="4" class="btn btn-outline-dark button2">6</button>
+                        <button type="button" name="4" class="btn btn-outline-dark button2">7</button>
+                    </div></div>
+                    <div class="col">
+                    <p>매우 그렇다</p> </div>
+                </div>
+                <input type="text" id="ibt1" name="ibt1" style="display:none;"/>
+            </div><br>
+            <div class="form-group">
+                <label for="ibt2">2. 나는 종종 계획되지 않은 구매를 하곤 한다. ( I am a person who makes unplanned purchased) </label> <br>
+                <div class="row" align="center">
+                    <div class="col">
+                        <p>전혀 그렇지 않다</p></div>
+                    <div class="col">
+                    <div id="ibt2-btn" class="btn-group btn-group-sm" role="group" aria-label="Basic example" style="margin-bottom:10px; margin-top:15px;">
+                        <button type="button" name="1" class="btn btn-outline-dark button2">1</button>
+                        <button type="button" name="2" class="btn btn-outline-dark button2">2</button>
+                        <button type="button" name="3" class="btn btn-outline-dark button2">3</button>
+                        <button type="button" name="4" class="btn btn-outline-dark button2">4</button>
+                        <button type="button" name="4" class="btn btn-outline-dark button2">5</button>
+                        <button type="button" name="4" class="btn btn-outline-dark button2">6</button>
+                        <button type="button" name="4" class="btn btn-outline-dark button2">7</button>
+                    </div></div>
+                    <div class="col">
+                    <p>매우 그렇다</p> </div>
+                </div>
+                <input type="text" id="ibt2" name="ibt2" style="display:none;"/>
+            </div><br>
+            <div class="form-group">
+                <label for="ibt3">3. 나는 온라인 쇼핑 중, 정말 관심있는 물건을 발견했을 때 그 이후의 결과를 고려하지 않고 구매하곤 한다. <br>
+                (When I see something online that really interests me, I buy it without considering the consequences)</label> <br>
+                <div class="row" align="center">
+                    <div class="col">
+                        <p>전혀 그렇지 않다</p></div>
+                    <div class="col">
+                    <div id="ibt3-btn" class="btn-group btn-group-sm" role="group" aria-label="Basic example" style="margin-bottom:10px; margin-top:15px;">
+                        <button type="button" name="1" class="btn btn-outline-dark button2">1</button>
+                        <button type="button" name="2" class="btn btn-outline-dark button2">2</button>
+                        <button type="button" name="3" class="btn btn-outline-dark button2">3</button>
+                        <button type="button" name="4" class="btn btn-outline-dark button2">4</button>
+                        <button type="button" name="4" class="btn btn-outline-dark button2">5</button>
+                        <button type="button" name="4" class="btn btn-outline-dark button2">6</button>
+                        <button type="button" name="4" class="btn btn-outline-dark button2">7</button>
+                    </div></div>
+                    <div class="col">
+                    <p>매우 그렇다</p> </div>
+                </div>
+                <input type="text" id="ibt3" name="ibt3" style="display:none;"/>
+            </div><br>
+            <div class="form-group">
+                <label for="ibt4">4. 즉흥적으로 물건을 구매하는건 즐거운 일이다. (It is fun to buy spontaneously)</label> <br>
+                <div class="row" align="center">
+                    <div class="col">
+                        <p>전혀 그렇지 않다</p></div>
+                    <div class="col">
+                    <div id="ibt4-btn" class="btn-group btn-group-sm" role="group" aria-label="Basic example" style="margin-bottom:10px; margin-top:15px;">
+                        <button type="button" name="1" class="btn btn-outline-dark button2">1</button>
+                        <button type="button" name="2" class="btn btn-outline-dark button2">2</button>
+                        <button type="button" name="3" class="btn btn-outline-dark button2">3</button>
+                        <button type="button" name="4" class="btn btn-outline-dark button2">4</button>
+                        <button type="button" name="4" class="btn btn-outline-dark button2">5</button>
+                        <button type="button" name="4" class="btn btn-outline-dark button2">6</button>
+                        <button type="button" name="4" class="btn btn-outline-dark button2">7</button>
+                    </div></div>
+                    <div class="col">
+                    <p>매우 그렇다</p> </div>
+                </div>
+                <input type="text" id="ibt4" name="ibt4" style="display:none;"/>
+            </div><br>
+            <div class="form-group">
+                <label for="ibt5">5. 나는 쇼핑목록에 없었던 물건을 사는것을 피하는 편이다. (I avoid buying things that are not on my shopping list)</label> <br>
+                <div class="row" align="center">
+                    <div class="col">
+                        <p>전혀 그렇지 않다</p></div>
+                    <div class="col">
+                    <div id="ibt5-btn" class="btn-group btn-group-sm" role="group" aria-label="Basic example" style="margin-bottom:10px; margin-top:15px;">
+                        <button type="button" name="1" class="btn btn-outline-dark button2">1</button>
+                        <button type="button" name="2" class="btn btn-outline-dark button2">2</button>
+                        <button type="button" name="3" class="btn btn-outline-dark button2">3</button>
+                        <button type="button" name="4" class="btn btn-outline-dark button2">4</button>
+                        <button type="button" name="4" class="btn btn-outline-dark button2">5</button>
+                        <button type="button" name="4" class="btn btn-outline-dark button2">6</button>
+                        <button type="button" name="4" class="btn btn-outline-dark button2">7</button>
+                    </div></div>
+                    <div class="col">
+                    <p>매우 그렇다</p> </div>
+                </div>
+                <input type="text" id="ibt5" name="ibt5" style="display:none;"/>
+            </div><br>
+            <div class="invalid-feedback" style="display:none;" id="ibt-feedback"> Check if you correctly put your information again. </div>
+        <hr class="display-4"><br>
+
+        <div class="form-group">
+                <label for="imp1">1.“그냥 지른다”는 내가 물건을 사는 방식을 설명한다. (“Just do it” describes the way I buy things.) </label> <br>
+                <div class="row" align="center">
+                    <div class="col">
+                        <p>전혀 그렇지 않다</p></div>
+                    <div class="col">
+                    <div id="imp1-btn" class="btn-group btn-group-sm" role="group" aria-label="Basic example" style="margin-bottom:10px; margin-top:15px;">
+                        <button type="button" name="1" class="btn btn-outline-dark button2">1</button>
+                        <button type="button" name="2" class="btn btn-outline-dark button2">2</button>
+                        <button type="button" name="3" class="btn btn-outline-dark button2">3</button>
+                        <button type="button" name="4" class="btn btn-outline-dark button2">4</button>
+                        <button type="button" name="4" class="btn btn-outline-dark button2">5</button>
+                        <button type="button" name="4" class="btn btn-outline-dark button2">6</button>
+                        <button type="button" name="4" class="btn btn-outline-dark button2">7</button>
+                    </div></div>
+                    <div class="col">
+                    <p>매우 그렇다</p> </div>
+                </div>
+                <input type="text" id="imp1" name="imp1" style="display:none;"/>
+        </div><br>
+
+        <div class="form-group">
+                <label for="imp2">2. 나는 종종 생각하지 않고 물건을 사곤 한다. (I often buy things without thinking.)</label> <br>
+                <div class="row" align="center">
+                    <div class="col">
+                        <p>전혀 그렇지 않다</p></div>
+                    <div class="col">
+                    <div id="imp2-btn" class="btn-group btn-group-sm" role="group" aria-label="Basic example" style="margin-bottom:10px; margin-top:15px;">
+                        <button type="button" name="1" class="btn btn-outline-dark button2">1</button>
+                        <button type="button" name="2" class="btn btn-outline-dark button2">2</button>
+                        <button type="button" name="3" class="btn btn-outline-dark button2">3</button>
+                        <button type="button" name="4" class="btn btn-outline-dark button2">4</button>
+                        <button type="button" name="4" class="btn btn-outline-dark button2">5</button>
+                        <button type="button" name="4" class="btn btn-outline-dark button2">6</button>
+                        <button type="button" name="4" class="btn btn-outline-dark button2">7</button>
+                    </div></div>
+                    <div class="col">
+                    <p>매우 그렇다</p> </div>
+                </div>
+                <input type="text" id="imp2" name="imp2" style="display:none;"/>
+        </div><br>
+
+
+        <div class="form-group">
+                <label for="imp3">3.“보자마자 사버린다”는 나를 설명하는 표현이다. (“I see it, I buy it” describes me.)</label> <br>
+                <div class="row" align="center">
+                    <div class="col">
+                        <p>전혀 그렇지 않다</p></div>
+                    <div class="col">
+                    <div id="imp3-btn" class="btn-group btn-group-sm" role="group" aria-label="Basic example" style="margin-bottom:10px; margin-top:15px;">
+                        <button type="button" name="1" class="btn btn-outline-dark button2">1</button>
+                        <button type="button" name="2" class="btn btn-outline-dark button2">2</button>
+                        <button type="button" name="3" class="btn btn-outline-dark button2">3</button>
+                        <button type="button" name="4" class="btn btn-outline-dark button2">4</button>
+                        <button type="button" name="4" class="btn btn-outline-dark button2">5</button>
+                        <button type="button" name="4" class="btn btn-outline-dark button2">6</button>
+                        <button type="button" name="4" class="btn btn-outline-dark button2">7</button>
+                    </div></div>
+                    <div class="col">
+                    <p>매우 그렇다</p> </div>
+                </div>
+                <input type="text" id="imp3" name="imp3" style="display:none;"/>
+        </div><br>
+
+
+        <div class="form-group">
+                <label for="imp4">4.“지르고 나중에 생각한다”는 나를 설명하는 표현이다. (“Buy now, think about it later” describes me.)</label> <br>
+                <div class="row" align="center">
+                    <div class="col">
+                        <p>전혀 그렇지 않다</p></div>
+                    <div class="col">
+                    <div id="imp4-btn" class="btn-group btn-group-sm" role="group" aria-label="Basic example" style="margin-bottom:10px; margin-top:15px;">
+                        <button type="button" name="1" class="btn btn-outline-dark button2">1</button>
+                        <button type="button" name="2" class="btn btn-outline-dark button2">2</button>
+                        <button type="button" name="3" class="btn btn-outline-dark button2">3</button>
+                        <button type="button" name="4" class="btn btn-outline-dark button2">4</button>
+                        <button type="button" name="4" class="btn btn-outline-dark button2">5</button>
+                        <button type="button" name="4" class="btn btn-outline-dark button2">6</button>
+                        <button type="button" name="4" class="btn btn-outline-dark button2">7</button>
+                    </div></div>
+                    <div class="col">
+                    <p>매우 그렇다</p> </div>
+                </div>
+                <input type="text" id="imp4" name="imp4" style="display:none;"/>
+        </div><br>
+        <hr class="display-4"><br>
+
+        <div class="form-group">
+            <label for="sus1">1. 나는 친구가 동의해줄 때까지 최신 패션 스타일의 물건을 거의 구매하지 않는다.
+                <br> (I rarely purchase the latest fashion styles until I am sure my friends approve of them.) </label> <br>
+                <div class="row" align="center">
+                    <div class="col">
+                        <p>전혀 그렇지 않다</p></div>
+                    <div class="col">
+                    <div id="sus1-btn" class="btn-group btn-group-sm" role="group" aria-label="Basic example" style="margin-bottom:10px; margin-top:15px;">
+                        <button type="button" name="1" class="btn btn-outline-dark button2">1</button>
+                        <button type="button" name="2" class="btn btn-outline-dark button2">2</button>
+                        <button type="button" name="3" class="btn btn-outline-dark button2">3</button>
+                        <button type="button" name="4" class="btn btn-outline-dark button2">4</button>
+                        <button type="button" name="4" class="btn btn-outline-dark button2">5</button>
+                        <button type="button" name="4" class="btn btn-outline-dark button2">6</button>
+                        <button type="button" name="4" class="btn btn-outline-dark button2">7</button>
+                    </div></div>
+                    <div class="col">
+                    <p>매우 그렇다</p> </div>
+                </div>
+                <input type="text" id="sus1" name="sus1" style="display:none;"/>
+        </div><br>
+        <div class="form-group">
+            <label for="sus2">2. 내가 구매하는 물건이나 브랜드를 다른 사람들도 선호하는지는 중요하다.
+                <br> (It is important that others like the products and brands I buy.)</label> <br>
+                <div class="row" align="center">
+                    <div class="col">
+                        <p>전혀 그렇지 않다</p></div>
+                    <div class="col">
+                    <div id="sus2-btn" class="btn-group btn-group-sm" role="group" aria-label="Basic example" style="margin-bottom:10px; margin-top:15px;">
+                        <button type="button" name="1" class="btn btn-outline-dark button2">1</button>
+                        <button type="button" name="2" class="btn btn-outline-dark button2">2</button>
+                        <button type="button" name="3" class="btn btn-outline-dark button2">3</button>
+                        <button type="button" name="4" class="btn btn-outline-dark button2">4</button>
+                        <button type="button" name="4" class="btn btn-outline-dark button2">5</button>
+                        <button type="button" name="4" class="btn btn-outline-dark button2">6</button>
+                        <button type="button" name="4" class="btn btn-outline-dark button2">7</button>
+                    </div></div>
+                    <div class="col">
+                    <p>매우 그렇다</p> </div>
+                </div>
+                <input type="text" id="sus2" name="sus2" style="display:none;"/>
+        </div><br>
+        <div class="form-group">
+            <label for="sus3">3. 제품을 구입할 때, 나는 일반적으로 다른 사람들도 좋아하는 브랜드를 구입한다.
+                <br> (When buying products. I generally purchase those brands that I think others will approve of.)</label> <br>
+                <div class="row" align="center">
+                    <div class="col">
+                        <p>전혀 그렇지 않다</p></div>
+                    <div class="col">
+                    <div id="sus3-btn" class="btn-group btn-group-sm" role="group" aria-label="Basic example" style="margin-bottom:10px; margin-top:15px;">
+                        <button type="button" name="1" class="btn btn-outline-dark button2">1</button>
+                        <button type="button" name="2" class="btn btn-outline-dark button2">2</button>
+                        <button type="button" name="3" class="btn btn-outline-dark button2">3</button>
+                        <button type="button" name="4" class="btn btn-outline-dark button2">4</button>
+                        <button type="button" name="4" class="btn btn-outline-dark button2">5</button>
+                        <button type="button" name="4" class="btn btn-outline-dark button2">6</button>
+                        <button type="button" name="4" class="btn btn-outline-dark button2">7</button>
+                    </div></div>
+                    <div class="col">
+                    <p>매우 그렇다</p> </div>
+                </div>
+                <input type="text" id="sus3" name="sus3" style="display:none;"/>
+        </div><br>
+        <div class="form-group">
+            <label for="sus4">4. 다른 사람들이 내가 구매하는 물건에 대해서 본다고 했을 때, 나는 주로 다른 사람이 내가 살 것이라고 기대하는 브랜드의 물건을 구매하곤 한다.
+                <br> (If other people can see me using a product, I often purchase the brand they expect me to buy.)</label> <br>
+                <div class="row" align="center">
+                    <div class="col">
+                        <p>전혀 그렇지 않다</p></div>
+                    <div class="col">
+                    <div id="sus4-btn" class="btn-group btn-group-sm" role="group" aria-label="Basic example" style="margin-bottom:10px; margin-top:15px;">
+                        <button type="button" name="1" class="btn btn-outline-dark button2">1</button>
+                        <button type="button" name="2" class="btn btn-outline-dark button2">2</button>
+                        <button type="button" name="3" class="btn btn-outline-dark button2">3</button>
+                        <button type="button" name="4" class="btn btn-outline-dark button2">4</button>
+                        <button type="button" name="4" class="btn btn-outline-dark button2">5</button>
+                        <button type="button" name="4" class="btn btn-outline-dark button2">6</button>
+                        <button type="button" name="4" class="btn btn-outline-dark button2">7</button>
+                    </div></div>
+                    <div class="col">
+                    <p>매우 그렇다</p> </div>
+                </div>
+                <input type="text" id="sus4" name="sus4" style="display:none;"/>
+        </div><br>
+        <div class="form-group">
+            <label for="sus5">5. 나는 어떤 브랜드나 제품이 다른 사람들에 좋은 인상을 주는지 알고 싶다.
+                <br> (I like to know what brands and products make good impressions on others.) </label> <br>
+                <div class="row" align="center">
+                    <div class="col">
+                        <p>전혀 그렇지 않다</p></div>
+                    <div class="col">
+                    <div id="sus5-btn" class="btn-group btn-group-sm" role="group" aria-label="Basic example" style="margin-bottom:10px; margin-top:15px;">
+                        <button type="button" name="1" class="btn btn-outline-dark button2">1</button>
+                        <button type="button" name="2" class="btn btn-outline-dark button2">2</button>
+                        <button type="button" name="3" class="btn btn-outline-dark button2">3</button>
+                        <button type="button" name="4" class="btn btn-outline-dark button2">4</button>
+                        <button type="button" name="4" class="btn btn-outline-dark button2">5</button>
+                        <button type="button" name="4" class="btn btn-outline-dark button2">6</button>
+                        <button type="button" name="4" class="btn btn-outline-dark button2">7</button>
+                    </div></div>
+                    <div class="col">
+                    <p>매우 그렇다</p> </div>
+                </div>
+                <input type="text" id="sus5" name="sus5" style="display:none;"/>
+        </div><br>
+        <div class="form-group">
+            <label for="sus6">6. 나는 다른 사람들이 구매하는 것과 동일한 제품 및 브랜드를 구매하여 소속감을 느끼고 싶다
+            <br>(I achieve a sense of belonging by purchasing the same products and brands that others purchase.)</label> <br>
+                <div class="row" align="center">
+                    <div class="col">
+                        <p>전혀 그렇지 않다</p></div>
+                    <div class="col">
+                    <div id="sus6-btn" class="btn-group btn-group-sm" role="group" aria-label="Basic example" style="margin-bottom:10px; margin-top:15px;">
+                        <button type="button" name="1" class="btn btn-outline-dark button2">1</button>
+                        <button type="button" name="2" class="btn btn-outline-dark button2">2</button>
+                        <button type="button" name="3" class="btn btn-outline-dark button2">3</button>
+                        <button type="button" name="4" class="btn btn-outline-dark button2">4</button>
+                        <button type="button" name="4" class="btn btn-outline-dark button2">5</button>
+                        <button type="button" name="4" class="btn btn-outline-dark button2">6</button>
+                        <button type="button" name="4" class="btn btn-outline-dark button2">7</button>
+                    </div></div>
+                    <div class="col">
+                    <p>매우 그렇다</p> </div>
+                </div>
+                <input type="text" id="sus6" name="sus6" style="display:none;"/>
+        </div><br>
+        <div class="form-group">
+            <label for="sus7"> 7. 내가 누군가 처럼 되고 싶다고 생각했을 때, 나는 종종 그들이 사는 것과 같은 브랜드를 사곤 한다.
+            <br>(If I want to be like someone. I often try to buy the same brands that they buy.)</label> <br>
+                <div class="row" align="center">
+                    <div class="col">
+                        <p>전혀 그렇지 않다</p></div>
+                    <div class="col">
+                    <div id="sus7-btn" class="btn-group btn-group-sm" role="group" aria-label="Basic example" style="margin-bottom:10px; margin-top:15px;">
+                        <button type="button" name="1" class="btn btn-outline-dark button2">1</button>
+                        <button type="button" name="2" class="btn btn-outline-dark button2">2</button>
+                        <button type="button" name="3" class="btn btn-outline-dark button2">3</button>
+                        <button type="button" name="4" class="btn btn-outline-dark button2">4</button>
+                        <button type="button" name="4" class="btn btn-outline-dark button2">5</button>
+                        <button type="button" name="4" class="btn btn-outline-dark button2">6</button>
+                        <button type="button" name="4" class="btn btn-outline-dark button2">7</button>
+                    </div></div>
+                    <div class="col">
+                    <p>매우 그렇다</p> </div>
+                </div>
+                <input type="text" id="sus7" name="sus7" style="display:none;"/>
+        </div><br>
+        <div class="form-group">
+            <label for="sus8"> 8. 나는 같은 제품  및 브랜드를 구매하는 것으로 다른 사람들과 동일시 하곤 한다.
+                <br> (I often identify with other people by purchasing the same products and brands they purchase.)</label> <br>
+                <div class="row" align="center">
+                    <div class="col">
+                        <p>전혀 그렇지 않다</p></div>
+                    <div class="col">
+                    <div id="sus8-btn" class="btn-group btn-group-sm" role="group" aria-label="Basic example" style="margin-bottom:10px; margin-top:15px;">
+                        <button type="button" name="1" class="btn btn-outline-dark button2">1</button>
+                        <button type="button" name="2" class="btn btn-outline-dark button2">2</button>
+                        <button type="button" name="3" class="btn btn-outline-dark button2">3</button>
+                        <button type="button" name="4" class="btn btn-outline-dark button2">4</button>
+                        <button type="button" name="4" class="btn btn-outline-dark button2">5</button>
+                        <button type="button" name="4" class="btn btn-outline-dark button2">6</button>
+                        <button type="button" name="4" class="btn btn-outline-dark button2">7</button>
+                    </div></div>
+                    <div class="col">
+                    <p>매우 그렇다</p> </div>
+                </div>
+                <input type="text" id="sus8" name="sus8" style="display:none;"/>
+        </div><br>
+        <div class="form-group">
+            <label for="sus9">9. 괜찮은 제품 및 브랜드를 샀는지 확인하기 위해서, 나는 다른 사람들이 무엇을 사거나 사용하는지 관찰하곤 한다.
+                <br>(To make sure I buy the right product or brand. I often observe what others are buying and using.) </label> <br>
+                <div class="row" align="center">
+                    <div class="col">
+                        <p>전혀 그렇지 않다</p></div>
+                    <div class="col">
+                    <div id="sus9-btn" class="btn-group btn-group-sm" role="group" aria-label="Basic example" style="margin-bottom:10px; margin-top:15px;">
+                        <button type="button" name="1" class="btn btn-outline-dark button2">1</button>
+                        <button type="button" name="2" class="btn btn-outline-dark button2">2</button>
+                        <button type="button" name="3" class="btn btn-outline-dark button2">3</button>
+                        <button type="button" name="4" class="btn btn-outline-dark button2">4</button>
+                        <button type="button" name="4" class="btn btn-outline-dark button2">5</button>
+                        <button type="button" name="4" class="btn btn-outline-dark button2">6</button>
+                        <button type="button" name="4" class="btn btn-outline-dark button2">7</button>
+                    </div></div>
+                    <div class="col">
+                    <p>매우 그렇다</p> </div>
+                </div>
+                <input type="text" id="sus9" name="sus9" style="display:none;"/>
+        </div>
+        <div class="form-group">
+            <label for="sus10">10.제품에 대한 지식 또는 경험이 거의 없는 경우, 나는 주로 친구에게 제품에 대한 의견을 구한다.
+                <br>(If I have little experience with a product. I often ask my friends about the product.)</label> <br>
+                <div class="row" align="center">
+                    <div class="col">
+                        <p>전혀 그렇지 않다</p></div>
+                    <div class="col">
+                    <div id="sus10-btn" class="btn-group btn-group-sm" role="group" aria-label="Basic example" style="margin-bottom:10px; margin-top:15px;">
+                        <button type="button" name="1" class="btn btn-outline-dark button2">1</button>
+                        <button type="button" name="2" class="btn btn-outline-dark button2">2</button>
+                        <button type="button" name="3" class="btn btn-outline-dark button2">3</button>
+                        <button type="button" name="4" class="btn btn-outline-dark button2">4</button>
+                        <button type="button" name="4" class="btn btn-outline-dark button2">5</button>
+                        <button type="button" name="4" class="btn btn-outline-dark button2">6</button>
+                        <button type="button" name="4" class="btn btn-outline-dark button2">7</button>
+                    </div></div>
+                    <div class="col">
+                    <p>매우 그렇다</p> </div>
+                </div>
+                <input type="text" id="sus10" name="sus10" style="display:none;"/>
+        </div><br>
+        <div class="form-group">
+            <label for="sus11">11.  나는 가장 좋은 선택을 하기 위해 다른 사람들에게 조언을 요청하곤 한다.
+                <br>(I often consult other people to help choose the best alternative available from a product class.)</label> <br>
+                <div class="row" align="center">
+                    <div class="col">
+                        <p>전혀 그렇지 않다</p></div>
+                    <div class="col">
+                    <div id="sus11-btn" class="btn-group btn-group-sm" role="group" aria-label="Basic example" style="margin-bottom:10px; margin-top:15px;">
+                        <button type="button" name="1" class="btn btn-outline-dark button2">1</button>
+                        <button type="button" name="2" class="btn btn-outline-dark button2">2</button>
+                        <button type="button" name="3" class="btn btn-outline-dark button2">3</button>
+                        <button type="button" name="4" class="btn btn-outline-dark button2">4</button>
+                        <button type="button" name="4" class="btn btn-outline-dark button2">5</button>
+                        <button type="button" name="4" class="btn btn-outline-dark button2">6</button>
+                        <button type="button" name="4" class="btn btn-outline-dark button2">7</button>
+                    </div></div>
+                    <div class="col">
+                    <p>매우 그렇다</p> </div>
+                </div>
+                <input type="text" id="sus11" name="sus11" style="display:none;"/>
+        </div><br>
+        <div class="form-group">
+            <label for="sus12">12. 나는 구매하기 전에 흔히 친구나 가족으로부터 제품에 대한 정보를 묻는다.
+                <br> ( I frequently gather information from friends or family about a product before I buy.)</label> <br>
+                <div class="row" align="center">
+                    <div class="col">
+                        <p>전혀 그렇지 않다</p></div>
+                    <div class="col">
+                    <div id="sus12-btn" class="btn-group btn-group-sm" role="group" aria-label="Basic example" style="margin-bottom:10px; margin-top:15px;">
+                        <button type="button" name="1" class="btn btn-outline-dark button2">1</button>
+                        <button type="button" name="2" class="btn btn-outline-dark button2">2</button>
+                        <button type="button" name="3" class="btn btn-outline-dark button2">3</button>
+                        <button type="button" name="4" class="btn btn-outline-dark button2">4</button>
+                        <button type="button" name="4" class="btn btn-outline-dark button2">5</button>
+                        <button type="button" name="4" class="btn btn-outline-dark button2">6</button>
+                        <button type="button" name="4" class="btn btn-outline-dark button2">7</button>
+                    </div></div>
+                    <div class="col">
+                    <p>매우 그렇다</p> </div>
+                </div>
+                <input type="text" id="sus12" name="sus12" style="display:none;"/>
+        </div><br>
+
+
+
+
+            <div class="text-right">
+               <button type="button" class="btn btn-info" id="info-button"style="margin-top:30px;" onclick="window.scrollTo(0,0);" >Submit</button> </div>
+    </div>
+    </form>
+</div>
+</div>
+
+<script type='text/javascript' src="{% static "js/information.js" %}"></script>
+<style>
+
+    .left-text{
+    float: left;
+    }
+
+    .right-text{
+    float: right;
+    }
+
+</style>
+
+
+{% endblock %}
